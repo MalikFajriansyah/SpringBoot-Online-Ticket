@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Online Movie Ticket Booking</title>
+<meta charset="utf-8" />
+
+<style>
+input[type=text], select, input[type=submit], input[type=number] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 12px;
+}
+
+.button {
+	background-color: #6b796c;
+	color: white;
+	padding: 10px 18px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+}
+
+.container {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 50px;
+	max-width: 75%;
+}
+
+.parent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.right {
+	padding-left: 100px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
+ <ul>
+ 	 <li><a href="/ticketonline/list">Home</a></li>
+  	 <li><a href="/ticketonline/addnew">Add Film</a></li>
+  	 <li><a href="/ticketonline/searchcustomer">Search Costomer</a></li>
+</ul>
+</head>
+<body>
+	<div class="parent">
+		<div class="container" >
+			<h1>Cari Data Customer</h1>
+				<table>
+					<form th:action=@{custid} method="get">
+						<td>Id Customer</td>
+						<td>:</td>
+						<td><input id="custId" type="text" name="custId" th:value="${custId}" placeholder="Search By Id">
+						</td>
+						<td><button type="submit" class="btn btn-secondary">Search</button></td>
+					</form>
+					<tbody>
+						<tr>
+							<td>Id Customer</td>
+							<td>:</td>
+							<td th:each="customer : ${cus}">[[${customer.custId}]]</td>
+						</tr>
+						<tr>
+							<td>Nama</td>
+							<td>:</td>
+							<td th:each="customer : ${cus}">[[${customer.nama}]]</td>
+						</tr>
+						<tr>
+							<td>No Handphone</td>
+							<td>:</td>
+							<td th:each="customer : ${cus}">[[${customer.Phone}]]</td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td>:</td>
+							<td th:each="customer : ${cus}">[[${customer.Email}]]</td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+ 	 $(document).ready(function () {
+   	 // ...
+
+    $("#btnClear").on("click", function (e) {
+      e.preventDefault();
+      $("#custId").text("");
+      window.location = "[[@{custid}]]";
+    });
+  });
+</script>
+
+</body>
+</html>

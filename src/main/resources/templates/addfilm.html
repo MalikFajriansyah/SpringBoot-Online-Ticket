@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Film</h1>
+		<hr>
+		<h2>Add new Film</h2>
+		
+		<form action="#" th:action="@{savefilm}" th:object="${film}"method="POST">
+			<input type="text" th:field="*{film}" placeholder="Judul Film" class="form-control mb-4 col-4" required="required"> 
+			<input type="text"th:field="*{Jadwal}" placeholder="Jadwal Penayangan" class="form-control mb-4 col-4" required="required">
+			<input type="text"th:field="*{Start}" placeholder="Jam Mulai" class="form-control mb-4 col-4" required="required">
+			<input type="text"th:field="*{End}" placeholder="Jam Selesai" class="form-control mb-4 col-4" required="required">
+			<input type="number"th:field="*{JumlahTiket}" placeholder="Ketersediaan Tiket" class="form-control mb-4 col-4">
+
+			<button type="submit" class="btn btn-info col-2">Save new Film</button>
+		</form>
+		<hr>
+
+		<a th:href="@{list}"> Back to Film List</a>
+	</div>
+</body>
+</html>

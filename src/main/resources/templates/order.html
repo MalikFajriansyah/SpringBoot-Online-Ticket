@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Online Movie Ticket Booking</title>
+<meta charset="utf-8" />
+<meta charset="utf-8">
+<style>
+input[type=text], select, input[type=submit], input[type=number] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 12px;
+}
+
+.button {
+	background-color: #6b796c;
+	color: white;
+	padding: 10px 18px;
+	margin: 20px 0;
+	border: none;
+	cursor: pointer;
+}
+
+.container {
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+
+.parent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.right {
+	padding-left: 100px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
+
+<ul>
+  <li><a href="/ticketonline/list">Home</a></li>
+  <li><a href="/ticketonline/addnew">Add Film</a></li>
+  <li><a href="/ticketonline/searchcustomer">Search Costomer</a></li>
+</ul>
+</head>
+<body>
+	<div>
+		<div>
+			<h2>Data Film</h2>
+				<table th:if="${tickets}"> 
+					<tbody>
+							<tr>
+								<td>Id Film</td>
+								<td>:</td>
+								<td th:utext="${tickets.ticketId}"></td>
+							</tr>
+							<tr>
+								<td>Judul Film</td>
+								<td>:</td>
+								<td th:utext="${tickets.film}"></td>
+							</tr>
+							<tr>
+								<td>Date</td>
+								<td>:</td>
+								<td th:utext="${tickets.Jadwal}"></td>
+							</tr>
+							<tr>
+								<td>Start</td>
+								<td>:</td>
+								<td th:utext="${tickets.start}"></td>
+							</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+</body>
+</html>
